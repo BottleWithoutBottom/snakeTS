@@ -4,13 +4,14 @@ export default class AbstractUnitPart {
     value: number | null;
 
     constructor(props: object) {
-        this.x = null;
-        this.y = null;
-        this.value = null;
+        this.x = null as number | null;
+        this.y = null as number | null;
+        this.value = null as number | null;
     }
 
-    getX(): number | null {
-        return this.x;
+    getX(): number {
+        if (typeof this.x === "number") return this.x;
+        throw new Error('part x is not set');
     }
 
     setX(x: number): boolean {
@@ -18,8 +19,9 @@ export default class AbstractUnitPart {
         return true;
     }
 
-    getY(): number | null {
-        return this.y;
+    getY(): number {
+        if (typeof this.y === "number") return this.y;
+        throw new Error('part y is not set');
     }
 
     setY(y: number): boolean {
@@ -29,7 +31,8 @@ export default class AbstractUnitPart {
     }
 
     getValue(): number {
-        return this.value;
+        if (typeof this.value === "number") return this.value;
+        throw new Error('part value is not set');
     }
 
     setValue(value: number): boolean {

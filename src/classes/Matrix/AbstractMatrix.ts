@@ -32,7 +32,7 @@ export default class AbstractMatrix {
         return true;
     }
 
-    getMatrix(): Array<Array<number>> {
+    getMatrix(): Array<Array<number | null>> {
         return this.matrix;
     }
 }

@@ -5,7 +5,7 @@ export default class AbstractMap {
     matrix: AbstractMatrix | null;
 
     constructor() {
-        this.matrix = null;
+        this.matrix = null as AbstractMatrix | null;
     }
 
     /** parts: array [x: number, y: number, value: number] */
@@ -13,11 +13,13 @@ export default class AbstractMap {
         if (!this.matrix) return false;
 
         parts.map((item, index) => {
-            let x: number | null = item.getX();
-            let y: number | null = item.getY();
-            let value: number = item.getValue();
+            let x: number = item.getX();
+            let y: number = item.getY();
+            let value: number | null = item.getValue();
 
-            this.matrix[x][y] = value;
+            if (this.matrix !== null) {
+                this.matrix.getMatrix()[x][y] = value;
+            }
         });
 
         return true;
