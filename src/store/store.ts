@@ -10,6 +10,4 @@ export let initialState = {
     initialMapValue: null as number | null,
     initialSnakeLength: null as number | null,
 };
-
-// формируем тип на основании объекта.
 export let initialStateType = typeof initialState;
